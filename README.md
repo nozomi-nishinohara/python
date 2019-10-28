@@ -6,4 +6,4 @@ base image python:3.7.4
 
 ## VOLUME
 
-/usr/app/logs
+/usr/app/src/logs
