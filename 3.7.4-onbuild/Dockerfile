@@ -1,15 +1,19 @@
 FROM python:3.7.4
 
+ENV DEBIAN_FRONTEND noninteractive
+ENV TZ 'Asia/Tokyo'
+
+COPY wait-for-it.sh /usr/wait-for-it.sh
+
 RUN set -x \
-    # && apt-get update -y \
     && mkdir -p /usr/app/src \
-    && mkdir -p /usr/app/src/logs \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && chmod +x /usr/wait-for-it.sh \
+    && apt-get update \
+    && apt-get install --yes --no-install-recommends \
+    netcat
 
 WORKDIR /usr/app/src
-
-# VOLUME [ "/usr/app/src/logs" ]
-# EXPOSE 8888
 
 ONBUILD COPY requirements.txt requirements.txt
 
