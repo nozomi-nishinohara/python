@@ -3,6 +3,9 @@ FROM python:3.7.4
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ 'Asia/Tokyo'
 
+LABEL maintainer="Nozomi.Nishinohara"
+COPY bashrc /root/.bashrc
+
 COPY wait-for-it.sh /usr/wait-for-it.sh
 
 RUN set -x \

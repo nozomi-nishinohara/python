@@ -1,5 +1,8 @@
 FROM python:3.7.4
 
+LABEL maintainer="Nozomi.Nishinohara"
+COPY bashrc /root/.bashrc
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ 'Asia/Tokyo'
 
